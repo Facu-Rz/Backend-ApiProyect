@@ -8,6 +8,6 @@ export const findTablewareById = async (id) => {
     return await getTablewareById(id);
 }
 
-export const createTableware = async (data) => {
+export const addTableware = async (data) => {
     return await createTableware(data);
 }

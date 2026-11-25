@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import tablewareRouter from "./src/routes/tablewareRouter.js";
+import authRouter from "./src/routes/authRouter.js";
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/tableware", tablewareRouter);
+app.use("/api/auth", authRouter);
 
 const PORT= 3000;
 

@@ -1,4 +1,4 @@
-import { listTableware, findTablewareById, createTableware } from "../services/tablewareService.js";
+import { listTableware, findTablewareById, addTableware } from "../services/tablewareService.js";
 
 export const getTableware = async (req, res) => {
     try {
@@ -32,7 +32,7 @@ export const postTableware = async (req, res) => {
             return res.status(400).json({ error: "Datos inválidos" });
     }
 
-    const tableware = await createTableware({ title, price });
+    const tableware = await addTableware({ title, price });
     res.status(201).json(tableware);
 
     } catch (error) {
