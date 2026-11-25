@@ -18,3 +18,9 @@ export const getTablewareById = async (id) => {
 
     return { ...snapshot.data(), id: snapshot.id };
 }
+
+export const createTableware = async (data) => {
+    const reference = await addDoc(tablewareCollection, data);
+
+    return { ...data, id: reference.id };
+}

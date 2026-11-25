@@ -5,5 +5,6 @@ const router = Router();
 
 router.get('/', getTableware);
 router.get('/:id', getTablewareById);
+router.post('/', postTableware);
 
 export default router;

@@ -1,4 +1,4 @@
-import { getAllTableware, getTablewareById } from "../models/tablewareModel.js";
+import { getAllTableware, getTablewareById, createTableware } from "../models/tablewareModel.js";
 
 export const listTableware = async () => {
     return await getAllTableware();
@@ -6,4 +6,8 @@ export const listTableware = async () => {
 
 export const findTablewareById = async (id) => {
     return await getTablewareById(id);
+}
+
+export const createTableware = async (data) => {
+    return await createTableware(data);
 }
