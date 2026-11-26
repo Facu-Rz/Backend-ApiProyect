@@ -1,4 +1,4 @@
-import { listTableware, findTablewareById, addTableware } from "../services/tablewareService.js";
+import { listTableware, findTablewareById, addTableware, deleteTableware } from "../services/tablewareService.js";
 
 export const getTableware = async (req, res) => {
     try {
@@ -35,6 +35,19 @@ export const postTableware = async (req, res) => {
     const tableware = await addTableware({ title, price });
     res.status(201).json(tableware);
 
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
+export const deleteTablewareById = async (req, res) => {
+    try {
+        const tableware = await deleteTableware(req.params.id);
+        if (!tableware) {
+            return res.status(404).json({ error: "Vajilla no encontrada" });
+        }
+
+        res.json({ message: "Vajilla eliminada correctamente" });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
